@@ -49,7 +49,7 @@ export const RightBlock = styled("div")({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  padding: "0 36px",
+  padding: "0 24px",
   "@media(min-width: 1200px)": {
     width: "50%",
     padding: "0 72px",

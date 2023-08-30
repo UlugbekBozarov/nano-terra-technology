@@ -1,7 +1,7 @@
 import { ConfigProvider } from "antd";
 
 import { ThemeProvider } from "assets/theme";
-import AuthSignIn from "pages/auth/signIn/SignIn";
+import SignUp from "pages/auth/signUp/SignUp";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
     >
       <ThemeProvider>
         <div>
-          <AuthSignIn />
+          <SignUp />
         </div>
       </ThemeProvider>
     </ConfigProvider>

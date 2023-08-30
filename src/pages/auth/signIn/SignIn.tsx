@@ -4,7 +4,7 @@ import { Input } from "components";
 
 import { AuthLayout } from "../layout";
 
-const AuthSignIn = () => {
+const SignIn = () => {
   return (
     <AuthLayout
       title="Tizimga kirish"
@@ -12,11 +12,11 @@ const AuthSignIn = () => {
       submitText="Kirish"
     >
       <Space direction="vertical" size="middle" style={{ width: "100%" }}>
-        <Input name="login" label="Login" />
-        <Input name="password" label="Password" />
+        <Input name="login" label="Login" placeholder="Loginni kiriting" />
+        <Input name="password" label="Parol" placeholder="Parolni kiriting" />
       </Space>
     </AuthLayout>
   );
 };
 
-export default AuthSignIn;
+export default SignIn;
