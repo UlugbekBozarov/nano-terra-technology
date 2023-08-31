@@ -2,7 +2,7 @@ import { Space } from "antd";
 
 import { Input } from "components";
 
-import { AuthLayout } from "../layout";
+import { AuthLayout } from "../components";
 
 const SignIn = () => {
   return (

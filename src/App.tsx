@@ -1,7 +1,8 @@
+import { Layout } from "Layout";
 import { ConfigProvider } from "antd";
 
 import { ThemeProvider } from "assets/theme";
-import SignUp from "pages/auth/signUp/SignUp";
+import Dashboard from "pages/dashboard/Dashboard";
 
 function App() {
   return (
@@ -17,13 +18,14 @@ function App() {
             padding: 10,
             controlPaddingHorizontalSM: 24,
           },
+          Breadcrumb: {},
         },
       }}
     >
       <ThemeProvider>
-        <div>
-          <SignUp />
-        </div>
+        <Layout>
+          <Dashboard />
+        </Layout>
       </ThemeProvider>
     </ConfigProvider>
   );
