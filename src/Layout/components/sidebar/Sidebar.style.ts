@@ -22,6 +22,7 @@ export const StyledMenuBlock = styled("div")({
 });
 
 export const StyledMenu = styled(Menu)({
+  border: "none !important",
   "& li": {
     borderRadius: "0 !important",
     fontFamily: "Mulish",

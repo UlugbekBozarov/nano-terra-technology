@@ -13,7 +13,7 @@ export const StyledSearchInput = styled(Input)({
   borderRadius: "12px",
   lineHeight: "inherit",
   "&.ant-input-affix-wrapper-focused": {
-    width: "150px",
+    width: "200px",
   },
   "& .ant-input-prefix": {
     marginRight: "8px",
