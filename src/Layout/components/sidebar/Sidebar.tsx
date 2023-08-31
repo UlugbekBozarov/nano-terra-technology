@@ -1,6 +1,15 @@
 import { Typography } from "antd";
 
-import { Dashboard, Logo, Logout, Note, Settings } from "components/Icons";
+import {
+  Dashboard,
+  Employees,
+  Logo,
+  Logout,
+  Note,
+  Settings,
+  Tasks,
+  User,
+} from "components/Icons";
 
 import {
   StyledLogoBlock,
@@ -8,6 +17,7 @@ import {
   StyledMenuBlock,
   StyledSidebarContent,
 } from "./Sidebar.style";
+import Kpi from "components/Icons/kpi/Kpi";
 
 const Sidebar = () => {
   return (
@@ -35,14 +45,24 @@ const Sidebar = () => {
                   label: "Invoice",
                 },
                 {
-                  icon: <Note />,
-                  key: "invoice-2",
-                  label: "Invoice",
+                  icon: <Employees />,
+                  key: "employees",
+                  label: "Employees",
                 },
                 {
-                  icon: <Note />,
-                  key: "invoice-3",
-                  label: "Invoice",
+                  icon: <Tasks />,
+                  key: "tasks",
+                  label: "Tasks",
+                },
+                {
+                  icon: <User />,
+                  key: "user-info",
+                  label: "User info",
+                },
+                {
+                  icon: <Kpi />,
+                  key: "user-kpi",
+                  label: "User KPI",
                 },
               ],
             },
