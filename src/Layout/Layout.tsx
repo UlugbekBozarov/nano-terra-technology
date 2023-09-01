@@ -1,7 +1,7 @@
 import React from "react";
 import { Space, theme, Layout as LayoutComponent } from "antd";
 
-import { StyledContent, StyledLayout } from "./Layout.style";
+import { StyledContent, StyledHeader, StyledLayout } from "./Layout.style";
 import { Header, Sidebar } from "./components";
 
 interface ILayout {
@@ -25,26 +25,19 @@ const Layout: React.FC<ILayout> = ({ children }) => {
           breakpoint="lg"
           collapsedWidth="0"
           onBreakpoint={(broken) => {
-            console.log(broken);
+            // console.log(broken);
           }}
           onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
+            // console.log(collapsed, type);
           }}
           style={{ background: colorBgContainer }}
         >
           <Sidebar />
         </LayoutComponent.Sider>
         <StyledLayout>
-          <LayoutComponent.Header
-            style={{
-              height: 76,
-              lineHeight: "76px",
-              background: "transparent",
-              padding: "16px 20px 4px 20px",
-            }}
-          >
+          <StyledHeader>
             <Header />
-          </LayoutComponent.Header>
+          </StyledHeader>
           <StyledContent>{children}</StyledContent>
         </StyledLayout>
       </StyledLayout>

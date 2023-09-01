@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 
 export const StyledSidebarContent = styled("div")({
   height: "100%",
+  overflowY: "auto",
   paddingTop: "17px",
 });
 

@@ -1,21 +1,22 @@
 const Search = () => {
   return (
     <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
+      width="16"
+      height="17"
+      viewBox="0 0 16 17"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M5.75 10.5C8.37335 10.5 10.5 8.37335 10.5 5.75C10.5 3.12665 8.37335 1 5.75 1C3.12665 1 1 3.12665 1 5.75C1 8.37335 3.12665 10.5 5.75 10.5Z"
+        d="M7.66659 14.4999C11.1644 14.4999 13.9999 11.6644 13.9999 8.16659C13.9999 4.66878 11.1644 1.83325 7.66659 1.83325C4.16878 1.83325 1.33325 4.66878 1.33325 8.16659C1.33325 11.6644 4.16878 14.4999 7.66659 14.4999Z"
         stroke="#1C1E23"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M11 11L10 10"
+        opacity="0.4"
+        d="M14.6666 15.1666L13.3333 13.8333"
         stroke="#1C1E23"
         strokeWidth="1.5"
         strokeLinecap="round"

@@ -3,6 +3,7 @@ import { ConfigProvider } from "antd";
 
 import { ThemeProvider } from "assets/theme";
 import Dashboard from "pages/dashboard/Dashboard";
+import Employees from "pages/employees/Employees";
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       theme={{
         token: {
           colorPrimary: "#4623E9",
-          borderRadius: 6,
+          // colorBorderSecondary: ""
+          borderRadius: 8,
         },
         components: {
           Input: {
@@ -18,13 +20,16 @@ function App() {
             padding: 10,
             controlPaddingHorizontalSM: 24,
           },
-          Breadcrumb: {},
+          Button: {
+            controlHeight: 36,
+          },
         },
       }}
     >
       <ThemeProvider>
         <Layout>
-          <Dashboard />
+          {/* <Dashboard /> */}
+          <Employees />
         </Layout>
       </ThemeProvider>
     </ConfigProvider>
