@@ -2,15 +2,17 @@ import { Button } from "antd";
 import { styled } from "styled-components";
 
 export const AuthContainer = styled("div")({
+  minHeight: "100vh",
   display: "flex",
 });
 
 export const LeftBlock = styled("div")(({ theme }) => ({
-  height: "100vh",
+  height: "100%",
+  minHeight: "100vh",
   display: "none",
   justifyContent: "center",
   alignItems: "center",
-  padding: "0 72px",
+  padding: "24px 72px",
   background: theme.colorPrimary,
   "@media(min-width: 1200px)": {
     display: "flex",
@@ -45,18 +47,20 @@ export const StyledText = styled("p")(({ theme }) => ({
 
 export const RightBlock = styled("div")({
   width: "100%",
-  height: "100vh",
+  height: "100%",
+  minHeight: "100vh",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  padding: "0 24px",
+  padding: "24px",
+  boxSizing: "border-box",
   "@media(min-width: 1200px)": {
     width: "50%",
-    padding: "0 72px",
+    padding: "0 72px 24px 72px",
   },
 });
 
-export const StyledContent = styled("div")({
+export const StyledContent = styled("form")({
   width: "100%",
   "@media(min-width: 576px)": {
     width: "380px",
@@ -68,3 +72,5 @@ export const StyledButton = styled(Button)({
   height: "57px",
   marginTop: "20px",
 });
+
+export const HandleGoText = styled("p")({});

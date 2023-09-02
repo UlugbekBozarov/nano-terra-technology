@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Space, TableProps, Typography } from "antd";
+import { Space, TableProps } from "antd";
 
 import { Add, Filter, Search } from "components/Icons";
 

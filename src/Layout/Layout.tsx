@@ -1,14 +1,13 @@
-import React from "react";
+import { Suspense } from "react";
+import { Outlet } from "react-router-dom";
 import { Space, theme, Layout as LayoutComponent } from "antd";
+
+import { Spinner } from "components/common";
 
 import { StyledContent, StyledHeader, StyledLayout } from "./Layout.style";
 import { Header, Sidebar } from "./components";
 
-interface ILayout {
-  children?: React.ReactNode;
-}
-
-const Layout: React.FC<ILayout> = ({ children }) => {
+const Layout = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -24,12 +23,6 @@ const Layout: React.FC<ILayout> = ({ children }) => {
           width={280}
           breakpoint="lg"
           collapsedWidth="0"
-          onBreakpoint={(broken) => {
-            // console.log(broken);
-          }}
-          onCollapse={(collapsed, type) => {
-            // console.log(collapsed, type);
-          }}
           style={{ background: colorBgContainer }}
         >
           <Sidebar />
@@ -38,7 +31,11 @@ const Layout: React.FC<ILayout> = ({ children }) => {
           <StyledHeader>
             <Header />
           </StyledHeader>
-          <StyledContent>{children}</StyledContent>
+          <StyledContent>
+            <Suspense fallback={<Spinner size="large" />}>
+              <Outlet />
+            </Suspense>
+          </StyledContent>
         </StyledLayout>
       </StyledLayout>
     </Space>

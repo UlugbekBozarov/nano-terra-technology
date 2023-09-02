@@ -1,15 +1,18 @@
 import { Typography } from "antd";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import {
   Dashboard,
   Employees,
+  Kpi,
   Logo,
   Logout,
-  Note,
   Settings,
   Tasks,
   User,
 } from "components/Icons";
+import { signOut } from "redux/login/login";
 
 import {
   StyledLogoBlock,
@@ -17,14 +20,37 @@ import {
   StyledMenuBlock,
   StyledSidebarContent,
 } from "./Sidebar.style";
-import Kpi from "components/Icons/kpi/Kpi";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleChangeMenu = (value: any) => {
+    const key = value?.key;
+    switch (key) {
+      case "logout": {
+        dispatch(signOut());
+        break;
+      }
+      default: {
+        navigate(`/${key}`);
+      }
+    }
+  };
+
   return (
     <StyledSidebarContent>
       <StyledLogoBlock className="demo-logo-vertical">
         <Logo size={48} />
-        <Typography.Title level={3} style={{ margin: "0", marginLeft: "12px" }}>
+        <Typography.Title
+          level={3}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            margin: "0",
+            marginLeft: "12px",
+          }}
+        >
           Dashboard
         </Typography.Title>
       </StyledLogoBlock>
@@ -33,6 +59,7 @@ const Sidebar = () => {
           mode="inline"
           defaultSelectedKeys={["1"]}
           defaultOpenKeys={["sub1"]}
+          onClick={handleChangeMenu}
           items={[
             {
               key: "main-menu",
@@ -41,7 +68,7 @@ const Sidebar = () => {
               children: [
                 {
                   icon: <Dashboard />,
-                  key: "invoice-1",
+                  key: "invoice",
                   label: "Invoice",
                 },
                 {
@@ -71,8 +98,7 @@ const Sidebar = () => {
         />
         <StyledMenu
           mode="inline"
-          defaultSelectedKeys={["1"]}
-          defaultOpenKeys={["sub1"]}
+          onClick={handleChangeMenu}
           items={[
             {
               key: "preferences",

@@ -1,9 +1,7 @@
-import { Layout } from "Layout";
 import { ConfigProvider } from "antd";
 
 import { ThemeProvider } from "assets/theme";
-import Dashboard from "pages/dashboard/Dashboard";
-import Employees from "pages/employees/Employees";
+import Routes from "routers/Routes";
 
 function App() {
   return (
@@ -11,7 +9,10 @@ function App() {
       theme={{
         token: {
           colorPrimary: "#4623E9",
-          // colorBorderSecondary: ""
+          colorError: "#FF4D4F",
+          colorWarning: "#FAAD14",
+          colorTextLabel: "#1C1E23",
+          colorTextDisabled: "#D0D5DD",
           borderRadius: 8,
         },
         components: {
@@ -27,10 +28,7 @@ function App() {
       }}
     >
       <ThemeProvider>
-        <Layout>
-          {/* <Dashboard /> */}
-          <Employees />
-        </Layout>
+        <Routes />
       </ThemeProvider>
     </ConfigProvider>
   );

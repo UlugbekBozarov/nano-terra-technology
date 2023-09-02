@@ -1,13 +1,16 @@
 export { default as Add } from "./add/Add";
 export { default as Basket } from "./basket/Basket";
 export { default as ChevronRight } from "./chevron/ChevronRight";
+export { default as Close } from "./close/Close";
 export { default as Dashboard } from "./dashboard/Dashboard";
 export { default as Delete } from "./delete/Delete";
 export { default as Edit } from "./edit/Edit";
 export { default as Employees } from "./employees/Employees";
+export { default as Eye } from "./eye/Eye";
 export { default as Filter } from "./filter/Filter";
 export { default as Home } from "./home/Home";
 export { default as Invoice } from "./invoice/Invoice";
+export { default as Kpi } from "./kpi/Kpi";
 export { default as Logo } from "./logo/Logo";
 export { default as Logout } from "./logout/Logout";
 export { default as Note } from "./note/Note";

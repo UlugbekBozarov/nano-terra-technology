@@ -1,10 +1,12 @@
 import { FC, ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { Typography } from "antd";
 
 import { Logo } from "components/Icons";
 
 import {
   AuthContainer,
+  HandleGoText,
   LeftBlock,
   RightBlock,
   StyledButton,
@@ -19,13 +21,21 @@ interface IAuthLayout {
   description?: string;
   submitText?: string;
   children?: ReactNode;
+  onSubmit?: any;
+  go?: {
+    text?: string;
+    linkText: string;
+    link: string;
+  };
 }
 
 const AuthLayout: FC<IAuthLayout> = ({
   title,
   description,
   submitText,
+  onSubmit,
   children,
+  go,
 }) => {
   return (
     <AuthContainer>
@@ -38,7 +48,7 @@ const AuthLayout: FC<IAuthLayout> = ({
         </div>
       </LeftBlock>
       <RightBlock>
-        <StyledContent>
+        <StyledContent onSubmit={onSubmit}>
           <StyledImageRightBlock>
             <Logo size={80} />
           </StyledImageRightBlock>
@@ -50,7 +60,17 @@ const AuthLayout: FC<IAuthLayout> = ({
           </Typography.Title>
           <div>{children}</div>
           {submitText && (
-            <StyledButton type="primary">{submitText}</StyledButton>
+            <StyledButton htmlType="submit" type="primary">
+              {submitText}
+            </StyledButton>
+          )}
+          {go && (
+            <HandleGoText>
+              {go?.text}
+              <Link to={go?.link} style={{ marginLeft: "5px" }}>
+                {go?.linkText}
+              </Link>
+            </HandleGoText>
           )}
         </StyledContent>
       </RightBlock>
