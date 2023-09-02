@@ -12,11 +12,17 @@ const loginSlice = createSlice({
     signIn(state, action: PayloadAction<IUser>) {
       setItemCookie(STORAGE_NAMES.authorization, jwtEncode(action?.payload));
       setItemCookie(STORAGE_NAMES.user, action?.payload);
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 0);
       return true;
     },
     signOut() {
       setItemCookie(STORAGE_NAMES.authorization, "");
       setItemCookie(STORAGE_NAMES.user, "");
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 0);
       return false;
     },
   },

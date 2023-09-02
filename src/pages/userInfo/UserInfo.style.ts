@@ -2,9 +2,13 @@ import { Button } from "antd";
 import { styled } from "styled-components";
 
 export const StyledButton = styled(Button)({
-  height: "40px",
+  width: "42px",
+  height: "42px",
   display: "flex",
+  justifyContent: "center",
   alignItems: "center",
-  fontWeight: 500,
-  padding: "10px 24px",
+  background: "#F2F4F7",
+  boxShadow: "none",
+  border: "none",
+  padding: 0,
 });

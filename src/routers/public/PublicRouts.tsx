@@ -1,8 +1,14 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { lazy } from "react";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  redirect,
+} from "react-router-dom";
 
-import SignIn from "pages/auth/signIn/SignIn";
-import SignUp from "pages/auth/signUp/SignUp";
 import { Spinner } from "components/common";
+
+const SignIn = lazy(() => import("pages/auth/signIn/SignIn"));
+const SignUp = lazy(() => import("pages/auth/signUp/SignUp"));
 
 const router = createBrowserRouter([
   {
@@ -21,6 +27,8 @@ const router = createBrowserRouter([
 ]);
 
 const PublicRouts = () => {
+  redirect("/");
+
   return (
     <RouterProvider
       router={router}

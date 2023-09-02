@@ -1,5 +1,4 @@
 import { Typography } from "antd";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -12,7 +11,6 @@ import {
   Tasks,
   User,
 } from "components/Icons";
-import { signOut } from "redux/login/login";
 
 import {
   StyledLogoBlock,
@@ -20,16 +18,19 @@ import {
   StyledMenuBlock,
   StyledSidebarContent,
 } from "./Sidebar.style";
+import { setItemCookie } from "services/storage";
+import { STORAGE_NAMES } from "constants/Storage.constants";
 
 const Sidebar = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleChangeMenu = (value: any) => {
     const key = value?.key;
     switch (key) {
       case "logout": {
-        dispatch(signOut());
+        setItemCookie(STORAGE_NAMES.authorization, "");
+        setItemCookie(STORAGE_NAMES.user, "");
+        window.location.href = "/";
         break;
       }
       default: {
@@ -57,8 +58,8 @@ const Sidebar = () => {
       <StyledMenuBlock>
         <StyledMenu
           mode="inline"
-          defaultSelectedKeys={["1"]}
-          defaultOpenKeys={["sub1"]}
+          defaultSelectedKeys={[""]}
+          // defaultOpenKeys={["sub1"]}
           onClick={handleChangeMenu}
           items={[
             {
@@ -68,8 +69,8 @@ const Sidebar = () => {
               children: [
                 {
                   icon: <Dashboard />,
-                  key: "invoice",
-                  label: "Invoice",
+                  key: "",
+                  label: "Document",
                 },
                 {
                   icon: <Employees />,

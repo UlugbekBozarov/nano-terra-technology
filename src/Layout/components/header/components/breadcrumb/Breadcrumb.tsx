@@ -10,7 +10,7 @@ const Breadcrumb = () => {
       separator={<ChevronRight />}
       items={[
         {
-          href: "",
+          href: "/",
           title: <Home />,
         },
         {

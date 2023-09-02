@@ -1,10 +1,10 @@
 import { Basket } from "components/Icons";
-import { Tabs } from "components/common";
+import { Box, Tabs } from "components/common";
 
 const EmployeeFilter = () => {
   return (
     <div id="resizable-content">
-      <div style={{ minHeight: "56px", paddingBottom: "20px" }}>
+      <Box minHeight="56px" pb={20}>
         <Tabs
           items={[
             {
@@ -30,14 +30,7 @@ const EmployeeFilter = () => {
             },
           ]}
         />
-        {/* <Space size={[0, 8]} wrap>
-          <Tag>success</Tag>
-          <Tag color="processing">processing</Tag>
-          <Tag color="error">error</Tag>
-          <Tag color="warning">warning</Tag>
-          <Tag color="default">default</Tag>
-        </Space> */}
-      </div>
+      </Box>
     </div>
   );
 };

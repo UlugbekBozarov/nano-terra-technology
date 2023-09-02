@@ -4,7 +4,7 @@ import { ButtonProps } from "antd";
 import { StyledButton } from "./Button.style";
 
 const Button: React.FC<ButtonProps> = (props) => {
-  return <StyledButton {...props}>Button</StyledButton>;
+  return <StyledButton {...props} />;
 };
 
 export default Button;

@@ -1,19 +1,16 @@
-import { useNavigate } from "react-router-dom";
 import { useForm, FormProvider } from "react-hook-form";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Space } from "antd";
 
 import { ControlledInput, ControlledPasswordInput } from "components/form";
-
-import { signIn } from "redux/login";
 import { IUser } from "redux/users";
+import { jwtEncode } from "services/jwt";
+import { setItemCookie } from "services/storage";
+import { STORAGE_NAMES } from "constants/Storage.constants";
 
 import { AuthLayout } from "../components";
 
 const SignIn = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const users = useSelector((store: any) => store?.users);
 
   const formStore = useForm({
@@ -31,8 +28,9 @@ const SignIn = () => {
         u?.username === data?.username && u?.password === data?.password
     );
     if (user) {
-      dispatch(signIn(user));
-      navigate("/");
+      setItemCookie(STORAGE_NAMES.authorization, jwtEncode(user));
+      setItemCookie(STORAGE_NAMES.user, user);
+      window.location.href = "/";
     } else {
       setError("username", {
         type: "manual",

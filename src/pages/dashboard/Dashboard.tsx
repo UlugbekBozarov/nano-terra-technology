@@ -1,4 +1,5 @@
 import { Col, Row } from "antd";
+import Chart from "chart.js/auto";
 
 import {
   Balance,
@@ -7,6 +8,7 @@ import {
   Total,
   TransactionHistory,
 } from "./components";
+import { Box } from "components/common";
 
 const Dashboard = () => {
   return (
@@ -14,25 +16,37 @@ const Dashboard = () => {
       <Col xs={{ span: 24, order: 2 }} xl={{ order: 1, span: 16 }}>
         <Row>
           <Col span={24}>
-            <Spending />
+            <Box pb={20}>
+              <Spending />
+            </Box>
           </Col>
           <Col span={24}>
-            <TransactionHistory />
+            <Box pb={20}>
+              <TransactionHistory />
+            </Box>
           </Col>
           <Col span={24}>
-            <Total />
+            <Box pb={20}>
+              <Total />
+            </Box>
           </Col>
         </Row>
       </Col>
       <Col xs={{ span: 24, order: 1 }} xl={{ span: 8, order: 2 }}>
-        <Row>
-          <Col span={24}>
-            <Balance />
-          </Col>
-          <Col span={24}>
-            <SpendByCategory />
-          </Col>
-        </Row>
+        <Box pl={{ lg: 20 }}>
+          <Row>
+            <Col span={24}>
+              <Box pb={20}>
+                <Balance />
+              </Box>
+            </Col>
+            <Col span={24}>
+              <Box pb={20}>
+                <SpendByCategory />
+              </Box>
+            </Col>
+          </Row>
+        </Box>
       </Col>
     </Row>
   );

@@ -67,7 +67,7 @@ const AuthLayout: FC<IAuthLayout> = ({
           {go && (
             <HandleGoText>
               {go?.text}
-              <Link to={go?.link} style={{ marginLeft: "5px" }}>
+              <Link to={go?.link || "/"} style={{ marginLeft: "5px" }}>
                 {go?.linkText}
               </Link>
             </HandleGoText>

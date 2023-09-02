@@ -1,10 +1,14 @@
+import { lazy } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { Layout } from "Layout";
-
-import Dashboard from "pages/dashboard/Dashboard";
-import Employees from "pages/employees/Employees";
 import { Spinner } from "components/common";
+
+const Layout = lazy(() => import("Layout/Layout"));
+const Dashboard = lazy(() => import("pages/dashboard/Dashboard"));
+const Employees = lazy(() => import("pages/employees/Employees"));
+const Tasks = lazy(() => import("pages/tasks/Tasks"));
+const UserInfo = lazy(() => import("pages/userInfo/UserInfo"));
+const UserKpi = lazy(() => import("pages/userKpi/UserKpi"));
 
 const router = createBrowserRouter([
   {
@@ -25,15 +29,15 @@ const router = createBrowserRouter([
       },
       {
         path: "tasks",
-        element: <Employees />,
+        element: <Tasks />,
       },
       {
         path: "user-info",
-        element: <Employees />,
+        element: <UserInfo />,
       },
       {
         path: "user-kpi",
-        element: <Employees />,
+        element: <UserKpi />,
       },
     ],
   },
