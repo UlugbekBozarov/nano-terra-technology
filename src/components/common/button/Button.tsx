@@ -3,7 +3,7 @@ import { ButtonProps } from "antd";
 
 import { StyledButton } from "./Button.style";
 
-const Button: React.FC<ButtonProps> = (props) => {
+const Button: React.FC<ButtonProps & { padding?: string }> = (props) => {
   return <StyledButton {...props} />;
 };
 

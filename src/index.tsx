@@ -1,9 +1,11 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
+
+import ReduxProvider from "redux/provider";
+import { Spinner } from "components/common";
 
 import "./index.css";
 import App from "./App";
-import ReduxProvider from "redux/provider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,8 +13,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <ReduxProvider>
-      <App />
-    </ReduxProvider>
+    <Suspense fallback={<Spinner size="large" width="100%" height="100vh" />}>
+      <ReduxProvider>
+        <App />
+      </ReduxProvider>
+    </Suspense>
   </React.StrictMode>
 );

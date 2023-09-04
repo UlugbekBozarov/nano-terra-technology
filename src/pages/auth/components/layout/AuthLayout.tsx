@@ -15,6 +15,7 @@ import {
   StyledImageRightBlock,
   StyledText,
 } from "./AuthLayout.style";
+import { Box } from "components/common";
 
 interface IAuthLayout {
   title?: string;
@@ -65,12 +66,14 @@ const AuthLayout: FC<IAuthLayout> = ({
             </StyledButton>
           )}
           {go && (
-            <HandleGoText>
-              {go?.text}
-              <Link to={go?.link || "/"} style={{ marginLeft: "5px" }}>
-                {go?.linkText}
-              </Link>
-            </HandleGoText>
+            <Box mt={20}>
+              <HandleGoText>
+                {go?.text}
+                <Link to={go?.link || "/"} style={{ marginLeft: "5px" }}>
+                  {go?.linkText}
+                </Link>
+              </HandleGoText>
+            </Box>
           )}
         </StyledContent>
       </RightBlock>

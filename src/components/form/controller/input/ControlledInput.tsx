@@ -1,12 +1,34 @@
-import { Fragment } from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import { Fragment, FC } from "react";
+import {
+  Controller,
+  FieldValues,
+  RegisterOptions,
+  useFormContext,
+} from "react-hook-form";
+import { InputProps } from "antd";
 
-import { Error, Label } from "components/form/components";
+import { Label } from "components/common";
+import { Error } from "components/form/components";
 import { Close } from "components/Icons";
 
 import { StyledClearButton, StyledInput } from "./Input.style";
 
-const ControlledInput = ({ name, rules, label, onChange, ...props }: any) => {
+type IControlledInput = {
+  name: string;
+  rules?: Omit<
+    RegisterOptions<FieldValues, any>,
+    "disabled" | "valueAsNumber" | "valueAsDate" | "setValueAs"
+  >;
+  label?: string;
+} & InputProps;
+
+const ControlledInput: FC<IControlledInput> = ({
+  name,
+  rules,
+  label,
+  onChange,
+  ...props
+}: any) => {
   const { control } = useFormContext();
 
   const inputChangeHandler = (formChangeHandler: any) => (event: any) => {

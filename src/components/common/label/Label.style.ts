@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 
-export const FormLabel = styled("label")<{
+export const FormLabel = styled("label").withConfig({
+  shouldForwardProp: (prop) => !["disabled", "error", "warning"].includes(prop),
+})<{
   disabled?: boolean;
   error?: boolean;
   warning?: boolean;

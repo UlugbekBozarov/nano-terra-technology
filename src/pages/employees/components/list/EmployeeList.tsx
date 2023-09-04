@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { ColumnsType } from "antd/es/table";
 
 import CustomTable from "components/common/customTable/CustomTable";
@@ -24,29 +25,19 @@ const columns: ColumnsType = [
     title: "Description",
     dataIndex: "address",
   },
-  // {
-  //   width: 77,
-  //   render: () => {
-  //     return (
-  //       <Button type="primary" icon={<Edit />}>
-  //         Edit
-  //       </Button>
-  //     );
-  //   },
-  //   // dataIndex: "address",
-  // },
-  // {
-  //   width: "30",
-  //   // dataIndex: "address",
-  // },
 ];
 
-const EmployeeList = () => {
+const EmployeeList: FC<{
+  isFilter?: boolean;
+  setIsFilter?: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ isFilter, setIsFilter }) => {
   const { clientHeight } = useResize();
 
   return (
     <CustomTable
       selection
+      isFilter={isFilter}
+      setIsFilter={setIsFilter}
       filterHeight={clientHeight}
       tableTitle="Employees jfjfj jfjfj ffjjf"
       columns={columns}

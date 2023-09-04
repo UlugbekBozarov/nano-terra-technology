@@ -1,7 +1,8 @@
 import { Fragment } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import { Error, Label } from "components/form/components";
+import { Label } from "components/common";
+import { Error } from "components/form/components";
 import { Close } from "components/Icons";
 
 import { StyledClearButton, StyledPasswordInput } from "./PasswordInput.style";

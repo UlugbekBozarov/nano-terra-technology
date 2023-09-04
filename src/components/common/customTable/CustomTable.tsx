@@ -26,6 +26,8 @@ type ICustomTable = TableProps<any> & {
   tableTitle?: string;
   selection?: boolean;
   filterHeight?: number;
+  isFilter?: boolean;
+  setIsFilter?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const data: DataType[] = [];
@@ -42,6 +44,8 @@ const CustomTable: React.FC<ICustomTable> = ({
   filterHeight = 0,
   selection,
   tableTitle,
+  isFilter = false,
+  setIsFilter,
   ...props
 }) => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
@@ -78,9 +82,16 @@ const CustomTable: React.FC<ICustomTable> = ({
         </InfoLeft>
         <InfoRight>
           <Space wrap style={{ justifyContent: "flex-end" }}>
-            <Button type="primary" ghost icon={<Filter />}>
-              Filtering
-            </Button>
+            {!isFilter && (
+              <Button
+                type="primary"
+                ghost
+                icon={<Filter />}
+                onClick={() => setIsFilter && setIsFilter(true)}
+              >
+                Filtering
+              </Button>
+            )}
             <Button type="primary" icon={<Add />}>
               Button
             </Button>

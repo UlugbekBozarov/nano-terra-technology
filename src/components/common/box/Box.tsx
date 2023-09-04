@@ -190,7 +190,7 @@ const BoxRoot = styled("div").withConfig({
       paddingLeft: getValue(pl, "md") || getValue(px, "md"),
       paddingRight: getValue(pr, "md") || getValue(px, "md"),
     },
-    "@media(min-width: 1200px)": {
+    "@media(min-width: 992px)": {
       width: getValue(width, "lg"),
       minWidth: getValue(minWidth, "lg"),
       display: getValueString(display, "lg"),
@@ -199,6 +199,16 @@ const BoxRoot = styled("div").withConfig({
       paddingBottom: getValue(pb, "lg") || getValue(py, "lg"),
       paddingLeft: getValue(pl, "lg") || getValue(px, "lg"),
       paddingRight: getValue(pr, "lg") || getValue(px, "lg"),
+    },
+    "@media(min-width: 1200px)": {
+      width: getValue(width, "xl"),
+      minWidth: getValue(minWidth, "xl"),
+      display: getValueString(display, "xl"),
+      padding: getValue(p, "xl"),
+      paddingTop: getValue(pt, "xl") || getValue(py, "xl"),
+      paddingBottom: getValue(pb, "xl") || getValue(py, "xl"),
+      paddingLeft: getValue(pl, "xl") || getValue(px, "xl"),
+      paddingRight: getValue(pr, "xl") || getValue(px, "xl"),
     },
   })
 );
