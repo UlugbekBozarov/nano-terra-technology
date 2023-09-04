@@ -2,12 +2,12 @@ import { get } from "lodash";
 import React from "react";
 import { styled } from "styled-components";
 
-interface ISpaceMediaObject {
-  xs?: number;
-  sm?: number;
-  md?: number;
-  lg?: number;
-  xl?: number;
+interface IMediaObject {
+  xs?: string | number;
+  sm?: string | number;
+  md?: string | number;
+  lg?: string | number;
+  xl?: string | number;
 }
 
 type IDisplay = "flex" | "block" | "initial" | "inherit";
@@ -21,7 +21,7 @@ interface IDisplayMediaObject {
 }
 
 interface IBox {
-  width?: number | string;
+  width?: IMediaObject | number | string;
   minWidth?: number | string;
   maxWidth?: number | string;
   height?: number | string;
@@ -55,13 +55,13 @@ interface IBox {
   ml?: number;
   mx?: number;
   my?: number;
-  p?: ISpaceMediaObject | number;
-  pt?: ISpaceMediaObject | number;
-  pb?: ISpaceMediaObject | number;
-  pr?: ISpaceMediaObject | number;
-  pl?: ISpaceMediaObject | number;
-  px?: ISpaceMediaObject | number;
-  py?: ISpaceMediaObject | number;
+  p?: IMediaObject | number;
+  pt?: IMediaObject | number;
+  pb?: IMediaObject | number;
+  pr?: IMediaObject | number;
+  pl?: IMediaObject | number;
+  px?: IMediaObject | number;
+  py?: IMediaObject | number;
   children?: React.ReactNode;
 }
 
@@ -85,18 +85,47 @@ const getStringSpace = (value?: string | number) => {
 };
 
 const getValue = (
-  value?: object | number,
+  value?: object | number | string,
   media?: "xs" | "sm" | "md" | "lg" | "xl"
 ) => {
   if (typeof value === "object") {
     const newValue = get(value, media || "xs", undefined);
     return getStringSpace(newValue);
+  } else if (typeof value === "string") {
+    return value;
   } else {
     return getStringSpace(value);
   }
 };
 
-const BoxRoot = styled("div")<IBox>(
+const BoxRoot = styled("div").withConfig({
+  shouldForwardProp: (prop) =>
+    ![
+      "width",
+      "minWidth",
+      "maxWidth",
+      "height",
+      "minHeight",
+      "maxHeight",
+      "display",
+      "justifyContent",
+      "alignItems",
+      "m",
+      "mb",
+      "ml",
+      "mr",
+      "mt",
+      "mx",
+      "my",
+      "p",
+      "pb",
+      "pl",
+      "pr",
+      "pt",
+      "px",
+      "py",
+    ].includes(prop),
+})<IBox>(
   ({
     width,
     minWidth,
@@ -122,8 +151,8 @@ const BoxRoot = styled("div")<IBox>(
     px,
     py,
   }) => ({
-    width: typeof width === "number" ? `${width}px` : width,
-    minWidth: typeof minWidth === "number" ? `${minWidth}px` : minWidth,
+    width: getValue(width),
+    minWidth: getValue(minWidth),
     maxWidth: typeof maxWidth === "number" ? `${maxWidth}px` : maxWidth,
     height: typeof height === "number" ? `${height}px` : height,
     minHeight: typeof minHeight === "number" ? `${minHeight}px` : minHeight,
@@ -142,6 +171,8 @@ const BoxRoot = styled("div")<IBox>(
     paddingLeft: getValue(pl) || getValue(px),
     paddingRight: getValue(pr) || getValue(px),
     "@media(min-width: 576px)": {
+      width: getValue(width, "sm"),
+      minWidth: getValue(minWidth, "sm"),
       display: getValueString(display, "sm"),
       padding: getValue(p, "sm"),
       paddingTop: getValue(pt, "sm") || getValue(py, "sm"),
@@ -150,6 +181,8 @@ const BoxRoot = styled("div")<IBox>(
       paddingRight: getValue(pr, "sm") || getValue(px, "sm"),
     },
     "@media(min-width: 768px)": {
+      width: getValue(width, "md"),
+      minWidth: getValue(minWidth, "md"),
       display: getValueString(display, "md"),
       padding: getValue(p, "md"),
       paddingTop: getValue(pt, "md") || getValue(py, "md"),
@@ -158,6 +191,8 @@ const BoxRoot = styled("div")<IBox>(
       paddingRight: getValue(pr, "md") || getValue(px, "md"),
     },
     "@media(min-width: 1200px)": {
+      width: getValue(width, "lg"),
+      minWidth: getValue(minWidth, "lg"),
       display: getValueString(display, "lg"),
       padding: getValue(p, "lg"),
       paddingTop: getValue(pt, "lg") || getValue(py, "lg"),

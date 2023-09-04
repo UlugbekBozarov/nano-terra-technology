@@ -1,6 +1,7 @@
-import { Button, Card, Typography } from "antd";
+import { Card, Typography } from "antd";
 import { MoneyReceive, MoneySend, More } from "components/Icons";
 import { Box } from "components/common";
+
 import { StyledButton } from "./Balance.style";
 
 const Balance = () => {

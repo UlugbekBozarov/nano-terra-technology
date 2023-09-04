@@ -2,6 +2,7 @@ import { lazy } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import { Spinner } from "components/common";
+import { ErrorBoundary } from "services/error";
 
 const Layout = lazy(() => import("Layout/Layout"));
 const Dashboard = lazy(() => import("pages/dashboard/Dashboard"));
@@ -39,7 +40,12 @@ const router = createBrowserRouter([
         path: "user-kpi",
         element: <UserKpi />,
       },
+      {
+        path: "*",
+        element: <div>Page not found</div>,
+      },
     ],
+    errorElement: <ErrorBoundary />,
   },
 ]);
 

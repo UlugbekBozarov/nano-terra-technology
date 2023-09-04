@@ -6,7 +6,6 @@ import { SpinnerContent } from "./Spinner.style";
 const Spinner: React.FC<SpinProps & { width?: string; height?: string }> = ({
   width,
   height,
-  size,
   ...props
 }) => {
   return (

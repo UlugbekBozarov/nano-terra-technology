@@ -11,6 +11,8 @@ import {
   Tasks,
   User,
 } from "components/Icons";
+import { setItemCookie } from "services/storage";
+import { STORAGE_NAMES } from "constants/Storage.constants";
 
 import {
   StyledLogoBlock,
@@ -18,8 +20,6 @@ import {
   StyledMenuBlock,
   StyledSidebarContent,
 } from "./Sidebar.style";
-import { setItemCookie } from "services/storage";
-import { STORAGE_NAMES } from "constants/Storage.constants";
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -58,7 +58,7 @@ const Sidebar = () => {
       <StyledMenuBlock>
         <StyledMenu
           mode="inline"
-          defaultSelectedKeys={[""]}
+          defaultSelectedKeys={[window?.location?.pathname?.slice(1)]}
           // defaultOpenKeys={["sub1"]}
           onClick={handleChangeMenu}
           items={[

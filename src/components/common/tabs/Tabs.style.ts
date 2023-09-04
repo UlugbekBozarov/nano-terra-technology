@@ -8,13 +8,13 @@ export const StyledButton = styled(Button)(({ theme }) => ({
   backgroundColor: `${theme?.colorWhite} !important`,
 }));
 
-export const StyledBadge = styled(Badge)<{ active?: boolean }>(
-  ({ active = false, theme }) => ({
-    height: "18px",
-    marginLeft: "7px",
-    "& .ant-badge-multiple-words": {
-      color: active ? theme?.colorWhite : "#667085",
-      background: active ? theme?.colorPrimary : "#F2F4F7",
-    },
-  })
-);
+export const StyledBadge = styled(Badge).withConfig({
+  shouldForwardProp: (prop) => prop !== "active",
+})<{ active?: boolean }>(({ active = false, theme }) => ({
+  height: "18px",
+  marginLeft: "7px",
+  "& .ant-badge-multiple-words": {
+    color: active ? theme?.colorWhite : "#667085",
+    background: active ? theme?.colorPrimary : "#F2F4F7",
+  },
+}));

@@ -3,15 +3,75 @@ import { Bar } from "react-chartjs-2";
 
 import { Box } from "components/common";
 import { YearFilter } from "components/filter";
-import { StyledButton } from "./UserInfo.style";
 import { ArrowUp } from "components/Icons";
+import { DisplayImage } from "components/form";
+
+import { StyledButton, StyledTable } from "./UserInfo.style";
+
+const columns = [
+  {
+    label: "Ҳудуд:",
+    value: "Андижон",
+  },
+  {
+    label: "Туман (шаҳар):",
+    value: "Андижон ш.",
+  },
+  {
+    label: "Маҳалла:",
+    value: "Андижон МФЙ",
+  },
+  {
+    label: "Лавозими:",
+    value: "Инспектор",
+  },
+  {
+    label: "Унвони:",
+    value: "Капитан",
+  },
+  {
+    label: "Туғилган санаси:",
+    value: "12.01.1980",
+  },
+  {
+    label: "Телефон рақами:",
+    value: "+99890 123-45-67",
+  },
+  {
+    label: "Паспорт серия ва рақами:",
+    value: "АА 1234567",
+  },
+  {
+    label: "Гувоҳнома рақами:",
+    value: "123456789",
+  },
+];
 
 const UserInfo = () => {
   return (
     <Row>
       <Col xs={{ span: 24, order: 2 }} xl={{ order: 1, span: 16 }}>
         <Box mb={24}>
-          <Card>Info</Card>
+          <Card>
+            <Box display={{ sm: "flex" }}>
+              <Box width={{ xs: "100%", sm: 160 }} pb={20}>
+                <DisplayImage width="160px" height="160px" />
+              </Box>
+              <Box
+                width={{ xs: "100%", sm: "calc(100% - 160px)" }}
+                pl={{ sm: 16 }}
+              >
+                <StyledTable>
+                  {columns?.map((column) => (
+                    <div className="row" key={column?.value}>
+                      <div className="col">{column?.label}</div>
+                      <div className="col">{column?.value}</div>
+                    </div>
+                  ))}
+                </StyledTable>
+              </Box>
+            </Box>
+          </Card>
         </Box>
         <Box mb={24}>
           <Card>

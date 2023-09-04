@@ -10,7 +10,7 @@ const Header = () => {
         <Breadcrumb />
       </div>
       <div style={{ height: "36px" }}>
-        <Space style={{ height: "36px", gap: "10px" }}>
+        <Space style={{ height: "36px" }}>
           <Search />
           <Notification />
           <Profile />

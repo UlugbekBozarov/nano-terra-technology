@@ -4,7 +4,7 @@ import { Box, Tabs } from "components/common";
 const EmployeeFilter = () => {
   return (
     <div id="resizable-content">
-      <Box minHeight="56px" pb={20}>
+      <Box minHeight={56} pb={20}>
         <Tabs
           items={[
             {

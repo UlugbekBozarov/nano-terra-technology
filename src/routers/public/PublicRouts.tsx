@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import { Spinner } from "components/common";
+import { ErrorBoundary } from "services/error";
 
 const SignIn = lazy(() => import("pages/auth/signIn/SignIn"));
 const SignUp = lazy(() => import("pages/auth/signUp/SignUp"));
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
     ],
+    errorElement: <ErrorBoundary />,
+  },
+  {
+    path: "*",
+    element: <div>Page not found</div>,
   },
 ]);
 

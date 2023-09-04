@@ -1,7 +1,9 @@
 import { Card, Col, Row, Typography } from "antd";
+
 import { Box } from "components/common";
-import { StyledButton, StyledHr } from "./Total.style";
 import { ArrowDown, ArrowUp } from "components/Icons";
+
+import { StyledButton, StyledHr } from "./Total.style";
 
 const Total = () => {
   return (

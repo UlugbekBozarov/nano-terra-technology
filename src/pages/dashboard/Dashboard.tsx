@@ -1,5 +1,6 @@
 import { Col, Row } from "antd";
-import Chart from "chart.js/auto";
+
+import { Box } from "components/common";
 
 import {
   Balance,
@@ -8,7 +9,6 @@ import {
   Total,
   TransactionHistory,
 } from "./components";
-import { Box } from "components/common";
 
 const Dashboard = () => {
   return (
