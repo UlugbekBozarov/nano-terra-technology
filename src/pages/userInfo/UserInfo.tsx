@@ -1,5 +1,5 @@
 import { Card, Col, Row, Typography } from "antd";
-import { Bar } from "react-chartjs-2";
+// import { Bar } from "react-chartjs-2";
 
 import { Box } from "components/common";
 import { YearFilter } from "components/filter";
@@ -81,7 +81,7 @@ const UserInfo = () => {
               </Typography.Title>
               <YearFilter options={[2021, 2022, 2023, 2024]} />
             </Box>
-            <Bar
+            {/* <Bar
               data={{
                 labels: ["I chorak", "II chorak", "III chorak", "IV chorak"],
                 datasets: [
@@ -131,7 +131,7 @@ const UserInfo = () => {
                   },
                 },
               }}
-            />
+            /> */}
           </Card>
         </Box>
         <Box mb={24}>
@@ -142,7 +142,7 @@ const UserInfo = () => {
               </Typography.Title>
               <YearFilter options={[2021, 2022, 2023, 2024]} />
             </Box>
-            <Bar
+            {/* <Bar
               data={{
                 labels: [
                   "Jan",
@@ -187,7 +187,7 @@ const UserInfo = () => {
                   },
                 },
               }}
-            />
+            /> */}
           </Card>
         </Box>
       </Col>

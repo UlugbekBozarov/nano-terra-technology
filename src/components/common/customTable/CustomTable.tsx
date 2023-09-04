@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Space, TableProps } from "antd";
+import { Space, TablePaginationConfig, TableProps } from "antd";
 
 import { Add, Filter, Search } from "components/Icons";
+import { useResizeWindow } from "hooks";
 
 import Table from "../table/Table";
 import Button from "../button/Button";
@@ -13,7 +14,14 @@ import {
   StyledSearchInput,
   StyledTitle,
 } from "./CustomTable.style";
-import { useResizeWindow } from "hooks";
+import { FilterValue } from "antd/es/table/interface";
+
+interface TableParams {
+  pagination?: TablePaginationConfig;
+  sortField?: string;
+  sortOrder?: string;
+  filters?: Record<string, FilterValue>;
+}
 
 interface DataType {
   key: React.Key;
@@ -49,12 +57,33 @@ const CustomTable: React.FC<ICustomTable> = ({
   ...props
 }) => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+  const [
+    tableParams,
+    // setTableParams
+  ] = useState<TableParams>({
+    pagination: {
+      current: 1,
+      pageSize: 50,
+    },
+  });
 
   const { windowWidth, clientHeight } = useResizeWindow("custom-table-info");
 
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
     setSelectedRowKeys(newSelectedRowKeys);
   };
+
+  // const handleTableChange = (
+  //   pagination: TablePaginationConfig,
+  //   filters: Record<string, FilterValue>,
+  //   sorter: SorterResult<DataType>
+  // ) => {
+  //   setTableParams({
+  //     pagination,
+  //     filters,
+  //     ...sorter,
+  //   });
+  // };
 
   const rowSelection = {
     selectedRowKeys,
@@ -107,6 +136,8 @@ const CustomTable: React.FC<ICustomTable> = ({
         }}
         rowSelection={selection ? rowSelection : undefined}
         dataSource={data}
+        pagination={tableParams.pagination}
+        // onChange={handleTableChange}
       />
     </StyledCard>
   );

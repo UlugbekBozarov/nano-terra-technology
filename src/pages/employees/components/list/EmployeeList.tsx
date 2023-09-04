@@ -3,6 +3,8 @@ import { ColumnsType } from "antd/es/table";
 
 import CustomTable from "components/common/customTable/CustomTable";
 import { useResize } from "hooks";
+import { Delete, Edit } from "components/Icons";
+import { Box, Button } from "components/common";
 
 const columns: ColumnsType = [
   {
@@ -24,6 +26,23 @@ const columns: ColumnsType = [
     width: 300,
     title: "Description",
     dataIndex: "address",
+  },
+  {
+    width: 150,
+    render: () => (
+      <Box display="flex">
+        <Button height="35px" type="primary" icon={<Edit />} padding="6px 14px">
+          Edit
+        </Button>
+        <Button
+          height="35px"
+          padding="6px 14px"
+          style={{ marginLeft: "10px", border: "none" }}
+        >
+          <Delete />
+        </Button>
+      </Box>
+    ),
   },
 ];
 

@@ -4,9 +4,12 @@ import { ThemeProvider } from "assets/theme";
 import Routes from "routers/Routes";
 
 function App() {
+  // const { defaultAlgorithm, darkAlgorithm } = theme;
+
   return (
     <ConfigProvider
       theme={{
+        // algorithm: darkAlgorithm,
         token: {
           colorWhite: "#ffffff",
           colorPrimary: "#4623E9",

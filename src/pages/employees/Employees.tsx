@@ -91,13 +91,20 @@ const Employees = () => {
                     </Box>
                   </Col>
                   <Col span={12}>
-                    <Box pb={4} pr={6}>
-                      <Button padding="0">Filter cleaning</Button>
+                    <Box pt={20} pr={6}>
+                      <Button
+                        width="100%"
+                        type="primary"
+                        onClick={() => setIsFilter(false)}
+                        padding="10px 5px"
+                      >
+                        Filter cleaning
+                      </Button>
                     </Box>
                   </Col>
                   <Col span={12}>
-                    <Box pb={4} pl={6}>
-                      <Button>Filtering</Button>
+                    <Box pt={20} pl={6}>
+                      <Button width="100%">Filtering</Button>
                     </Box>
                   </Col>
                 </Row>
