@@ -7,7 +7,6 @@ export const AuthContainer = styled("div")({
 });
 
 export const LeftBlock = styled("div")(({ theme }) => ({
-  height: "100%",
   minHeight: "100vh",
   display: "none",
   justifyContent: "center",
