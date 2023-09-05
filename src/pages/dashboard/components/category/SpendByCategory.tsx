@@ -4,6 +4,7 @@ import { PieChart, Pie, Cell, Label } from "recharts";
 import { More } from "components/Icons";
 import { Box } from "components/common";
 import { useResize } from "hooks";
+import { ChartBlock, StyledLabelBlock } from "./SpendByCategory.style";
 
 // const data = [
 //   { name: "Group A", value: 500 },
@@ -85,21 +86,26 @@ const SpendByCategory = () => {
             display="flex"
             justifyContent={{ xs: "center", sm: "start", xl: "center" }}
           >
-            <PieChart width={size} height={size}>
-              <Pie
-                data={data}
-                innerRadius={size < 300 ? 60 : 90}
-                fill="#8884d8"
-                paddingAngle={5}
-                dataKey="value"
-                cornerRadius={8}
-              >
-                {data.map((item, index) => (
-                  <Cell key={`cell-${index}`} fill={item.color} />
-                ))}
-                <Label position="center" fontSize="14px" value={`$19,760,00`} />
-              </Pie>
-            </PieChart>
+            <ChartBlock size={size}>
+              <PieChart width={size} height={size}>
+                <Pie
+                  data={data}
+                  innerRadius={size < 300 ? 60 : 90}
+                  fill="#8884d8"
+                  paddingAngle={5}
+                  dataKey="value"
+                  cornerRadius={8}
+                >
+                  {data.map((item, index) => (
+                    <Cell key={`cell-${index}`} fill={item.color} />
+                  ))}
+                </Pie>
+              </PieChart>
+              <StyledLabelBlock size={size}>
+                <p>Overall Spending</p>
+                <h4>$19,760,00</h4>
+              </StyledLabelBlock>
+            </ChartBlock>
           </Box>
         </Col>
         <Col

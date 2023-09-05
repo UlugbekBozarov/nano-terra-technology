@@ -1,7 +1,4 @@
 import { Card, Typography } from "antd";
-
-import { YearFilter } from "components/filter";
-import { Box } from "components/common";
 import {
   Bar,
   BarChart,
@@ -11,6 +8,10 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+
+import { YearFilter } from "components/filter";
+import { Box } from "components/common";
+
 import { StyledChardBlock } from "./Spending.style";
 
 const data = [
@@ -21,7 +22,6 @@ const data = [
   },
   {
     name: "Feb",
-    uv: 3000,
     dataKey: 3000,
     amt: "$1000",
   },

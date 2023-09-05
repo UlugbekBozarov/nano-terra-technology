@@ -33,7 +33,7 @@ const Dashboard = () => {
         </Row>
       </Col>
       <Col xs={{ span: 24, order: 1 }} xl={{ span: 8, order: 2 }}>
-        <Box pl={{ lg: 20 }}>
+        <Box pl={{ xl: 20 }}>
           <Row>
             <Col span={24}>
               <Box pb={20}>
