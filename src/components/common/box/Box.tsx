@@ -20,7 +20,27 @@ interface IDisplayMediaObject {
   xl?: IDisplay;
 }
 
+type IJustifyContent =
+  | "center"
+  | "space-between"
+  | "space-around"
+  | "flex-start"
+  | "flex-end"
+  | "end"
+  | "start"
+  | "inherit"
+  | "initial";
+
+interface IJustifyContentMediaObject {
+  xs?: IJustifyContent;
+  sm?: IJustifyContent;
+  md?: IJustifyContent;
+  lg?: IJustifyContent;
+  xl?: IJustifyContent;
+}
+
 interface IBox {
+  id?: string;
   width?: IMediaObject | number | string;
   minWidth?: number | string;
   maxWidth?: number | string;
@@ -28,16 +48,7 @@ interface IBox {
   minHeight?: number | string;
   maxHeight?: number | string;
   display?: IDisplayMediaObject | IDisplay;
-  justifyContent?:
-    | "center"
-    | "space-between"
-    | "space-around"
-    | "flex-start"
-    | "flex-end"
-    | "end"
-    | "start"
-    | "inherit"
-    | "initial";
+  justifyContent?: IJustifyContentMediaObject | IJustifyContent;
   alignItems?:
     | "center"
     | "baseline"
@@ -158,7 +169,7 @@ const BoxRoot = styled("div").withConfig({
     minHeight: typeof minHeight === "number" ? `${minHeight}px` : minHeight,
     maxHeight: typeof maxHeight === "number" ? `${maxHeight}px` : maxHeight,
     display: getValueString(display),
-    justifyContent,
+    justifyContent: getValue(justifyContent),
     alignItems,
     margin: m ? `${m}px` : undefined,
     marginLeft: ml || mx ? `${ml || mx}px` : undefined,
@@ -174,6 +185,7 @@ const BoxRoot = styled("div").withConfig({
       width: getValue(width, "sm"),
       minWidth: getValue(minWidth, "sm"),
       display: getValueString(display, "sm"),
+      justifyContent: getValueString(justifyContent, "sm"),
       padding: getValue(p, "sm"),
       paddingTop: getValue(pt, "sm") || getValue(py, "sm"),
       paddingBottom: getValue(pb, "sm") || getValue(py, "sm"),
@@ -184,6 +196,7 @@ const BoxRoot = styled("div").withConfig({
       width: getValue(width, "md"),
       minWidth: getValue(minWidth, "md"),
       display: getValueString(display, "md"),
+      justifyContent: getValueString(justifyContent, "md"),
       padding: getValue(p, "md"),
       paddingTop: getValue(pt, "md") || getValue(py, "md"),
       paddingBottom: getValue(pb, "md") || getValue(py, "md"),
@@ -194,6 +207,7 @@ const BoxRoot = styled("div").withConfig({
       width: getValue(width, "lg"),
       minWidth: getValue(minWidth, "lg"),
       display: getValueString(display, "lg"),
+      justifyContent: getValueString(justifyContent, "lg"),
       padding: getValue(p, "lg"),
       paddingTop: getValue(pt, "lg") || getValue(py, "lg"),
       paddingBottom: getValue(pb, "lg") || getValue(py, "lg"),
@@ -204,6 +218,7 @@ const BoxRoot = styled("div").withConfig({
       width: getValue(width, "xl"),
       minWidth: getValue(minWidth, "xl"),
       display: getValueString(display, "xl"),
+      justifyContent: getValueString(justifyContent, "xl"),
       padding: getValue(p, "xl"),
       paddingTop: getValue(pt, "xl") || getValue(py, "xl"),
       paddingBottom: getValue(pb, "xl") || getValue(py, "xl"),

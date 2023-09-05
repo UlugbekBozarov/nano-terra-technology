@@ -1,4 +1,3 @@
-// import { Bar } from "react-chartjs-2";
 import { Card, Typography } from "antd";
 
 import { YearFilter } from "components/filter";
@@ -7,73 +6,73 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
-  Legend,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
+import { StyledChardBlock } from "./Spending.style";
 
 const data = [
   {
     name: "Jan",
-    dataKey: 2400,
+    dataKey: 11000,
     amt: "$500",
   },
   {
     name: "Feb",
     uv: 3000,
-    dataKey: 1398,
+    dataKey: 3000,
     amt: "$1000",
   },
   {
     name: "Mar",
-    dataKey: 9800,
+    dataKey: 14000,
     amt: "$1000",
   },
   {
     name: "Apr",
-    dataKey: 3908,
+    dataKey: 7000,
     amt: "$1000",
   },
   {
     name: "May",
-    dataKey: 4800,
+    dataKey: 4500,
     amt: "$1000",
   },
   {
     name: "Jun",
-    dataKey: 3800,
+    dataKey: 15100,
     amt: "$1000",
   },
   {
     name: "Jul",
-    dataKey: 4300,
+    dataKey: 6800,
     amt: "$1000",
   },
   {
     name: "Avg",
-    dataKey: 4300,
+    dataKey: 8000,
     amt: "$1000",
   },
   {
     name: "Sep",
-    dataKey: 4300,
+    dataKey: 15100,
     amt: "$1000",
   },
   {
     name: "Oct",
-    dataKey: 4300,
+    dataKey: 12000,
     amt: "$1000",
   },
   {
     name: "Nov",
-    dataKey: 4300,
+    dataKey: 7000,
     amt: "$1000",
   },
   {
     name: "Dec",
-    dataKey: 4300,
+    dataKey: 14000,
     amt: "$1000",
   },
 ];
@@ -81,93 +80,81 @@ const data = [
 const Spending = () => {
   return (
     <Card>
-      <Box display="flex" justifyContent="space-between" mb={15}>
+      <Box display={{ md: "flex" }} justifyContent="space-between" mb={15}>
         <Typography.Title level={3} style={{ marginTop: "0px" }}>
           Spending Statistics
         </Typography.Title>
         <YearFilter options={[2021, 2022, 2023, 2024]} />
       </Box>
-      {/* <Bar
-        data={{
-          labels: [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "Mei",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-            "Nov",
-            "Des",
-          ],
-          datasets: [
-            { data: [] },
-            {
-              label: "My First dataset",
-              backgroundColor: "#4623E9",
-              borderRadius: 50,
-              data: [
-                1565, 9845, 6500, 5900, 8000, 8100, 5600, 5500, 4000, 9561,
-                2165, 8432,
-              ],
-            },
-            { data: [] },
-          ],
-        }}
-        options={{
-          scales: {
-            x: {
-              grid: {
-                color: "transparent",
-                offset: true,
-              },
-            },
-          },
-          plugins: {
-            legend: {
-              display: false,
-            },
-          },
-        }}
-      /> */}
-      <Box width="100%" height="400px">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-              top: 0,
-              right: 0,
-              left: 0,
-              bottom: 10,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis
-              yAxisId="left"
-              axisLine={false}
-              orientation="left"
-              stroke="#4623E9"
-            />
-            {/* <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" /> */}
-            <Tooltip />
-            <Legend />
-            <Bar
-              yAxisId="left"
-              dataKey="dataKey"
-              fill="#4623E9"
-              barSize={12}
-              radius={[12, 12, 0, 0]}
-            />
-            {/* <Bar yAxisId="right" dataKey="uv" fill="#82ca9d" /> */}
-          </BarChart>
-        </ResponsiveContainer>
-      </Box>
+      <StyledChardBlock>
+        <Box width="100%" height="400px">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              width={500}
+              height={300}
+              data={data}
+              margin={{
+                top: 0,
+                right: 0,
+                left: 0,
+                bottom: 10,
+              }}
+            >
+              <CartesianGrid verticalPoints={[0]} strokeDasharray={"1 0"} />
+              <XAxis dataKey="name" axisLine={false} />
+              <YAxis
+                style={{
+                  fontSize: "14px",
+                  color: "#667085",
+                  fontWeight: 600,
+                }}
+                yAxisId="left"
+                tickFormatter={(value) =>
+                  `$ ${
+                    value / 1000 > 1 ? `${Math.floor(value / 1000)}k` : value
+                  }`
+                }
+                axisLine={false}
+                stroke="#4623E9"
+              />
+              <Tooltip
+                itemStyle={{
+                  display: "none",
+                }}
+                labelFormatter={(_, payload) => {
+                  return (
+                    <div>
+                      <p>Expense</p>
+                      <p style={{ fontSize: "14px", fontWeight: 400 }}>
+                        $ {payload?.[0]?.value}
+                      </p>
+                    </div>
+                  );
+                }}
+                labelStyle={{
+                  color: "#fff",
+                  fontSize: "10px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                }}
+                contentStyle={{
+                  background: "#1C1E23",
+                  border: "none",
+                  borderRadius: "8px",
+                  padding: "6px 20px",
+                }}
+              />
+              <Bar
+                yAxisId="left"
+                dataKey="dataKey"
+                fill="#4623E9"
+                barSize={12}
+                radius={[12, 12, 0, 0]}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+        </Box>
+      </StyledChardBlock>
     </Card>
   );
 };
