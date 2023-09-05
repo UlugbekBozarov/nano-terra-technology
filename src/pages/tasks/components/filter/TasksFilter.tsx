@@ -3,7 +3,11 @@ import { Box, Button, Tabs } from "components/common";
 import { Typography } from "antd";
 import { SidebarRight } from "components/Icons";
 
-const TasksFilter = () => {
+interface ITasksFilter {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const TasksFilter: React.FC<ITasksFilter> = ({ setOpen }) => {
   return (
     <div id="resizable-content">
       <Box
@@ -15,7 +19,11 @@ const TasksFilter = () => {
         <Typography.Title level={3} style={{ fontWeight: 700, margin: 0 }}>
           Tasks
         </Typography.Title>
-        <Button type="primary" icon={<SidebarRight />}>
+        <Button
+          type="primary"
+          icon={<SidebarRight />}
+          onClick={() => setOpen((prev) => !prev)}
+        >
           Vazifalar
         </Button>
       </Box>

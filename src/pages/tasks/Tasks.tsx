@@ -1,11 +1,13 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { TasksFilter, TasksList } from "./components";
 
 const Tasks = () => {
+  const [open, setOpen] = useState<boolean>(true);
+
   return (
     <Fragment>
-      <TasksFilter />
-      <TasksList />
+      <TasksFilter setOpen={setOpen} />
+      <TasksList open={open} />
     </Fragment>
   );
 };
