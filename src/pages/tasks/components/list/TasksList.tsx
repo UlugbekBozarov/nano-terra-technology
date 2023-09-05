@@ -141,8 +141,8 @@ const TasksList: React.FC<ITaskList> = ({ open }) => {
                 <Typography.Title level={4}>Active Students</Typography.Title>
               </Box>
               <StyledUl>
-                {data?.map((item) => (
-                  <StyledLi>
+                {data?.map((item, index) => (
+                  <StyledLi key={index}>
                     <StyledIndex>{item?.number}</StyledIndex>
                     <StyledText>{item?.text}</StyledText>
                   </StyledLi>

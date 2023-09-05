@@ -1,5 +1,5 @@
 import { Card, Col, Row, Typography } from "antd";
-import { PieChart, Pie, Cell, Label } from "recharts";
+import { PieChart, Pie, Cell } from "recharts";
 
 import { More } from "components/Icons";
 import { Box } from "components/common";

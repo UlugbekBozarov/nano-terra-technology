@@ -126,7 +126,7 @@ const Spending = () => {
                     <div>
                       <p>Expense</p>
                       <p style={{ fontSize: "14px", fontWeight: 400 }}>
-                        $ {payload?.[0]?.value}
+                        $ {payload?.[0]?.value || "0"}
                       </p>
                     </div>
                   );

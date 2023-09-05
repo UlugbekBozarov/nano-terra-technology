@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ChevronRight, Home } from "components/Icons";
 
 import { StyledBreadcrumb } from "./Breadcrumb.style";

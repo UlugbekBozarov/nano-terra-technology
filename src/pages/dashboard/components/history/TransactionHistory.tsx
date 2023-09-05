@@ -43,7 +43,6 @@ const TransactionHistory = () => {
                 width: 270,
                 title: "Transaction",
                 dataIndex: "transaction",
-                key: "transaction",
                 render: (name, data) => {
                   return (
                     <Box width="270px" display="flex" alignItems="center">
@@ -72,19 +71,16 @@ const TransactionHistory = () => {
               {
                 width: 200,
                 title: "Date",
-                key: "date",
                 dataIndex: "date",
               },
               {
                 width: 200,
                 title: "Amount",
-                key: "amount",
                 dataIndex: "amount",
               },
               {
                 width: 200,
                 title: "Status",
-                key: "status",
                 dataIndex: "status",
               },
             ]}

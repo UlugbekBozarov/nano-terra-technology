@@ -58,7 +58,7 @@ const EmployeeList: FC<{
       isFilter={isFilter}
       setIsFilter={setIsFilter}
       filterHeight={clientHeight}
-      tableTitle="Employees jfjfj jfjfj ffjjf"
+      tableTitle="Employees"
       columns={columns}
     />
   );

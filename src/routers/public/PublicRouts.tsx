@@ -5,7 +5,7 @@ import {
   redirect,
 } from "react-router-dom";
 
-import { Spinner } from "components/common";
+import { Box, Spinner } from "components/common";
 import { ErrorBoundary } from "services/error";
 
 const SignIn = lazy(() => import("pages/auth/signIn/SignIn"));
@@ -28,7 +28,17 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <div>Page not found</div>,
+    element: (
+      <Box
+        width="100%"
+        height="100%"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        Page not found
+      </Box>
+    ),
   },
 ]);
 

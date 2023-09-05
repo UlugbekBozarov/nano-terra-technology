@@ -10,13 +10,13 @@ import {
   PieChart,
   Pie,
   Cell,
-  Label,
 } from "recharts";
 
 import { Box } from "components/common";
 import { YearFilter } from "components/filter";
 import { ArrowUp, More } from "components/Icons";
 import { DisplayImage } from "components/form";
+import { useResize } from "hooks";
 
 import {
   ChartBlock,
@@ -25,7 +25,6 @@ import {
   StyledLabelBlock,
   StyledTable,
 } from "./UserInfo.style";
-import { useResize } from "hooks";
 
 const columns = [
   {

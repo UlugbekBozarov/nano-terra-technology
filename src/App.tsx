@@ -28,6 +28,10 @@ function App() {
           Button: {
             controlHeight: 36,
           },
+          Card: {
+            colorBorder: "#fff",
+            boxShadow: "none",
+          },
         },
       }}
     >

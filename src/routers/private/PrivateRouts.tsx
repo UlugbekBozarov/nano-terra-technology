@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { Spinner } from "components/common";
+import { Box, Spinner } from "components/common";
 import { ErrorBoundary } from "services/error";
 
 const Layout = lazy(() => import("Layout/Layout"));
@@ -42,7 +42,17 @@ const router = createBrowserRouter([
       },
       {
         path: "*",
-        element: <div>Page not found</div>,
+        element: (
+          <Box
+            width="100%"
+            height="100%"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            Page not found
+          </Box>
+        ),
       },
     ],
     errorElement: <ErrorBoundary />,
