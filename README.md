@@ -4,6 +4,10 @@ You can see the demo version of this task
 
 # [DEMO](https://nano-terra-technology.netlify.app/)
 
+# Skills
+
+Typescript, Antd, React-hook-form, Redux-toolkit, Recharts, Styled-components, Lodash
+
 ## Available Scripts
 
 In the project directory, you can run:
